@@ -20,8 +20,8 @@ phases:
             - echo "Writing image definitions file..."
             - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URL:$IMAGE_TAG > image_definitions.json
             - echo "Reconfigure appspec..."
-            - sed -i "s/<TASK_DEFINITION_ARN>/$TASK_DEFINITION_ARN/g" appspec.yml
-            - sed -i "s/<CONTAINER_NAME>/$CONTAINER_NAME/g" appspec.yml
+            - sed -i "s|<TASK_DEFINITION_ARN>|$TASK_DEFINITION_ARN|g" appspec.yml
+            - sed -i "s|<CONTAINER_NAME>|$CONTAINER_NAME|g" appspec.yml
 artifacts:
     files:
       - image_definitions.json
