@@ -3,7 +3,8 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "<TASK_DEFINITION_ARN>"
+        TaskDefinition: <TASK_DEFINITION> # This placeholder is automatically replaced during CodeDeploy
         LoadBalancerInfo:
-          ContainerName: "<CONTAINER_NAME>"
+          # Name of the container to be tied to the load balancer.
+          ContainerName: "<CLUSTER_NAME>-app"
           ContainerPort: 8000
